@@ -1,0 +1,51 @@
+---
+title: "Shiny_with_Plotly Presentation"
+author: "Damjan Stefanovski"
+date: "September 11, 2017"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+## This slides explain the Purpose behind the shiny application build for the course project.
+The application url link for the shiny server is:  https://my-data-analytics.shinyapps.io/sinyapp_with_showcase/
+
+The GitHub repo or this project is: 
+https://github.com/DamjanStefanovski/Shiny_App_Project
+
+Most of the text used in this presentation is from Shiny.Rstudio.com website and from other web sources tutorials on shiny and plotly.
+
+
+## Understand reactivity in R
+Reactivity is what makes your Shiny apps responsive. It lets the app instantly update itself whenever the user makes a change. By using reactivity we can create more efficient and sophisticated Shiny apps, and avoid the errors that come from misusing reactive values in R  
+
+Reactivity is unexpected
+
+Reactivity creates the illusion that changes in input values automatically flow to the plots, text, and tables that use the input—and cause them to update. You can think of this flow as a current of electricity, or a stream of water that pushes information from input to output. You saw this illusion in action when you moved the slider bar. Changes in the slider bar seemed to automatically propagate to the number beside the bar
+
+
+## The summary of the data set contains:
+carat; cut; color; clarity; depth; tabe and price. They can all be independently selected with in the App and manipulate the outcome.
+Plotly's R graphing library makes interactive, publication-quality graphs online. Examples of how to make line plots, scatter plots, area charts, bar charts, error bars, box plots, histograms, heatmaps, subplots, multiple-axes, and 3D (WebGL based) charts.
+
+## Plotly Example
+```{r, message=FALSE}
+library(plotly)
+set.seed(100)
+d <- diamonds[sample(nrow(diamonds), 1000), ]
+plot_ly(d, x = ~carat, y = ~price, color = ~carat,
+        size = ~carat, text = ~paste("Clarity: ", clarity))
+```
+
+
+## This system enables reactivity because it lets your server work fast enough to create the illusion of instant responses.
+Instead of re-running every expression in your app every few seconds,
+the server only needs to check its queue for new callbacks.
+The result is the quick, responsive updates you see in your Shiny app.
+Now that we know how reactivity works in Shiny. Notice that this system doesn’t ask R to behave in a new way. Your observers are still looking up information from the reactive values. The values are not being pushed to the observer like a flow of electricity, or a stream—they only appear to be doing that. The key to this system is speed. Shiny enacts the pull mechanisms of R so fast that they look like push mechanisms.
+
+
+
+
+

@@ -1,0 +1,8 @@
+Title: ShinyApp
+Author: =Damjan Stefanovski
+AuthorUrl: http://www.my-data-analytics.com/
+License: GPL-3
+DisplayMode: Showcase
+Tags: Course Project , Understand reactivity in R
+Type: Shiny app with Plotly
+
